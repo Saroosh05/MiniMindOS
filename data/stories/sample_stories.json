@@ -1,0 +1,17 @@
+{
+  "stories": [
+    {
+      "id": "custom_story_1",
+      "title": "The Friendly Robot",
+      "author": "MiniMind OS",
+      "pages": [
+        "Once upon a time, there was a friendly robot named Beep.\n\nBeep loved to help children learn new things! 🤖",
+        "Every day, Beep would teach the children about numbers and letters.\n\nThe children loved learning with Beep! 📚",
+        "One day, a little girl named Maya asked Beep to help her draw a picture.\n\nBeep was so happy to help! 🎨",
+        "Maya drew a beautiful rainbow with Beep's help.\n\nShe was so proud of her artwork!\n\n🌈 THE END 🌈"
+      ]
+    }
+  ],
+  "note": "Parents can add custom stories here"
+}
+

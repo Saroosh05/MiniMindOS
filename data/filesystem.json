@@ -1,0 +1,103 @@
+{
+  "name": "/",
+  "path": "/",
+  "owner": "system",
+  "permissions": 3,
+  "files": {},
+  "subdirs": {
+    "system": {
+      "name": "system",
+      "path": "/system",
+      "owner": "system",
+      "permissions": 1,
+      "files": {},
+      "subdirs": {
+        "config": {
+          "name": "config",
+          "path": "/system/config",
+          "owner": "system",
+          "permissions": 1,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83d\udcc1"
+        },
+        "logs": {
+          "name": "logs",
+          "path": "/system/logs",
+          "owner": "system",
+          "permissions": 1,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83d\udcc1"
+        }
+      },
+      "icon": "\u2699\ufe0f"
+    },
+    "kids": {
+      "name": "kids",
+      "path": "/kids",
+      "owner": "kid",
+      "permissions": 7,
+      "files": {},
+      "subdirs": {
+        "drawings": {
+          "name": "drawings",
+          "path": "/kids/drawings",
+          "owner": "kid",
+          "permissions": 7,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83c\udfa8"
+        },
+        "stories": {
+          "name": "stories",
+          "path": "/kids/stories",
+          "owner": "kid",
+          "permissions": 7,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83d\udcda"
+        },
+        "music": {
+          "name": "music",
+          "path": "/kids/music",
+          "owner": "kid",
+          "permissions": 7,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83c\udfb5"
+        }
+      },
+      "icon": "\ud83d\udc76"
+    },
+    "shared": {
+      "name": "shared",
+      "path": "/shared",
+      "owner": "system",
+      "permissions": 1,
+      "files": {},
+      "subdirs": {
+        "stories": {
+          "name": "stories",
+          "path": "/shared/stories",
+          "owner": "system",
+          "permissions": 1,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83d\udcd6"
+        },
+        "music": {
+          "name": "music",
+          "path": "/shared/music",
+          "owner": "system",
+          "permissions": 1,
+          "files": {},
+          "subdirs": {},
+          "icon": "\ud83c\udfb6"
+        }
+      },
+      "icon": "\ud83d\udcc2"
+    }
+  },
+  "icon": "\ud83d\udcc1"
+}

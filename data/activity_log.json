@@ -1,0 +1,142 @@
+[
+  {
+    "timestamp": 1766308814.7677574,
+    "datetime": "2025-12-21 14:20:14",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766308814.770536,
+    "datetime": "2025-12-21 14:20:14",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1766309032.7439864,
+    "datetime": "2025-12-21 14:23:52",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309032.749761,
+    "datetime": "2025-12-21 14:23:52",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1766309085.5937204,
+    "datetime": "2025-12-21 14:24:45",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Drawing",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309085.6172104,
+    "datetime": "2025-12-21 14:24:45",
+    "event_type": "MEMORY",
+    "details": "Allocated 128KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309085.6189418,
+    "datetime": "2025-12-21 14:24:45",
+    "event_type": "PROCESS",
+    "details": "Process created: Drawing App (PID=1, Memory=128KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309085.6202598,
+    "datetime": "2025-12-21 14:24:45",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309085.6415625,
+    "datetime": "2025-12-21 14:24:45",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309090.6638381,
+    "datetime": "2025-12-21 14:24:50",
+    "event_type": "MEMORY",
+    "details": "Freed 128KB from PID 1",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309090.6676755,
+    "datetime": "2025-12-21 14:24:50",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Drawing App (PID=1)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309097.762303,
+    "datetime": "2025-12-21 14:24:57",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Stories",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309097.8248842,
+    "datetime": "2025-12-21 14:24:57",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 2 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309097.8295336,
+    "datetime": "2025-12-21 14:24:57",
+    "event_type": "PROCESS",
+    "details": "Process created: Story Reader (PID=2, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309097.832868,
+    "datetime": "2025-12-21 14:24:57",
+    "event_type": "SCHEDULER",
+    "details": "Process 2 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309097.904776,
+    "datetime": "2025-12-21 14:24:57",
+    "event_type": "PROCESS",
+    "details": "Process 2 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309168.6003492,
+    "datetime": "2025-12-21 14:26:08",
+    "event_type": "STORY",
+    "details": "Opened story: \ud83d\udc3b Goldilocks and the Three Bears",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309191.33193,
+    "datetime": "2025-12-21 14:26:31",
+    "event_type": "STORY",
+    "details": "Opened story: \ud83d\udc30 The Little Bunny",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309210.9560077,
+    "datetime": "2025-12-21 14:26:50",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1766309210.9618285,
+    "datetime": "2025-12-21 14:26:50",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "default_policy": {
+    "allowed_apps": ["drawing", "stories", "music", "puzzle"],
+    "daily_limit_minutes": 120,
+    "session_limit_minutes": 30,
+    "bedtime_enabled": true,
+    "bedtime_start": "20:00",
+    "bedtime_end": "07:00",
+    "content_filter_enabled": true,
+    "max_volume": 80
+  },
+  "app_settings": {
+    "drawing": {
+      "autosave_interval": 30,
+      "max_canvas_size": 2048
+    },
+    "stories": {
+      "font_size": 22,
+      "auto_advance": false
+    },
+    "music": {
+      "default_volume": 70,
+      "shuffle": false
+    },
+    "puzzle": {
+      "difficulty": "easy"
+    }
+  }
+}
+

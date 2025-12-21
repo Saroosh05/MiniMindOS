@@ -1,0 +1,23 @@
+# MiniMind OS - Requirements
+# ===========================
+# Roll Numbers: 2023-CS-67, 2023-CS-63
+
+# This project uses only Python standard library modules
+# No external packages are required!
+
+# Required (included with Python):
+# - tkinter (GUI)
+# - json (data persistence)
+# - threading (process simulation)
+# - time (timing functions)
+# - hashlib (password hashing)
+# - pathlib (file paths)
+# - dataclasses (data structures)
+# - enum (enumerations)
+
+# Python version requirement:
+# Python >= 3.8
+
+# To run the project:
+# python main.py
+
