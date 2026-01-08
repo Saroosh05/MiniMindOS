@@ -4,7 +4,8 @@
     "allowed_apps": [
       "drawing",
       "stories",
-      "puzzle"
+      "puzzle",
+      "music"
     ],
     "daily_limit_minutes": 144,
     "session_limit_minutes": 30,

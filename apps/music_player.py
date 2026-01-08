@@ -34,6 +34,14 @@ except ImportError:
     except ImportError:
         WINSOUND_AVAILABLE = False
 
+# Try to import mutagen for MP3 metadata (optional)
+try:
+    from mutagen.mp3 import MP3
+    from mutagen.id3 import ID3NoHeaderError
+    MUTAGEN_AVAILABLE = True
+except ImportError:
+    MUTAGEN_AVAILABLE = False
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ui.styles import Styles
 
@@ -63,8 +71,10 @@ class MusicPlayerApp(tk.Frame):
         # Player state
         self.current_song = None
         self.is_playing = False
-        self.current_time = 0
+        self.current_time = 0.0  # Use float for more precise time tracking
         self.volume = 70
+        self.actual_duration = None  # Actual duration of the audio file in seconds
+        self.playback_start_time = None  # When playback started (for tracking position)
         
         # Animation state
         self.animation_running = False
@@ -312,10 +322,27 @@ class MusicPlayerApp(tk.Frame):
             self._pause()
         
         self.current_song = song
-        self.current_time = 0
+        self.current_time = 0.0
         self.using_audio_file = False
+        self.actual_duration = None
+        self.playback_start_time = None
+        
+        # Try to get actual audio file duration
+        audio_file_path = self._get_audio_file_path()
+        if audio_file_path and os.path.exists(audio_file_path):
+            self.actual_duration = self._get_audio_duration(audio_file_path)
+            if self.actual_duration:
+                self.duration_label.configure(text=self._format_time(int(self.actual_duration)))
+            else:
+                # Fallback to hardcoded duration if we can't determine actual duration
+                self.actual_duration = song['duration']
+                self.duration_label.configure(text=self._format_time(song['duration']))
+        else:
+            # No audio file, use hardcoded duration
+            self.actual_duration = song['duration']
+            self.duration_label.configure(text=self._format_time(song['duration']))
+        
         self.song_title.configure(text=song['title'])
-        self.duration_label.configure(text=self._format_time(song['duration']))
         
         self.os_kernel.parental.logger.log(
             "MUSIC",
@@ -347,14 +374,27 @@ class MusicPlayerApp(tk.Frame):
         self.stop_audio = False
         
         # Resume if paused (using audio file)
-        if AUDIO_AVAILABLE and self.using_audio_file:
+        if AUDIO_AVAILABLE and self.using_audio_file and self.playback_start_time is not None:
             try:
+                # Adjust playback_start_time so elapsed time continues from current_time
+                # We want: elapsed = time.time() - playback_start_time = current_time
+                # So: playback_start_time = time.time() - current_time
+                self.playback_start_time = time.time() - self.current_time
                 pygame.mixer.music.unpause()
             except Exception:
                 # If resume fails, restart audio
+                self.playback_start_time = time.time()
+                self.current_time = 0.0
                 self._start_audio()
         else:
             # Start audio playback
+            if self.current_time > 0:
+                # Resuming from a paused state - adjust start time to account for already played time
+                self.playback_start_time = time.time() - self.current_time
+            else:
+                # Starting fresh
+                self.playback_start_time = time.time()
+                self.current_time = 0.0
             self._start_audio()
         
         # Start animation
@@ -377,6 +417,11 @@ class MusicPlayerApp(tk.Frame):
         self.animation_running = False
         self.stop_audio = True
         self._draw_music_icon(0)
+        
+        # Update current time based on elapsed playback time
+        if self.playback_start_time is not None:
+            elapsed = time.time() - self.playback_start_time
+            self.current_time = elapsed
         
         # Stop audio
         if AUDIO_AVAILABLE:
@@ -408,6 +453,13 @@ class MusicPlayerApp(tk.Frame):
     
     def _next_song(self):
         """Go to next song"""
+        # Stop current audio playback
+        if AUDIO_AVAILABLE:
+            try:
+                pygame.mixer.music.stop()
+            except Exception:
+                pass
+        
         if not self.current_song:
             self._select_song(self.SONGS[0])
             return
@@ -452,34 +504,92 @@ class MusicPlayerApp(tk.Frame):
         if not self.winfo_exists():
             return
         
-        self.current_time += 1
+        # Update current time based on actual playback
+        if self.playback_start_time is not None:
+            elapsed = time.time() - self.playback_start_time
+            self.current_time = elapsed
+        else:
+            # Fallback: increment by 1 second
+            self.current_time += 1.0
+        
+        # Use actual duration if available, otherwise fall back to hardcoded
+        duration = self.actual_duration if self.actual_duration else self.current_song['duration']
         
         # Update time label
-        self.time_label.configure(text=self._format_time(self.current_time))
+        self.time_label.configure(text=self._format_time(int(self.current_time)))
         
         # Update progress bar
-        progress_pct = self.current_time / self.current_song['duration']
-        self.progress.delete('all')
-        self.progress.create_rectangle(
-            0, 0,
-            300 * progress_pct, 10,
-            fill=Styles.get_color('music'),
-            outline=''
-        )
+        if duration > 0:
+            progress_pct = min(self.current_time / duration, 1.0)  # Cap at 100%
+            self.progress.delete('all')
+            self.progress.create_rectangle(
+                0, 0,
+                300 * progress_pct, 10,
+                fill=Styles.get_color('music'),
+                outline=''
+            )
         
         # Check if song ended
-        if self.current_time >= self.current_song['duration']:
+        # For audio files, check if pygame mixer is still busy
+        song_ended = False
+        if self.using_audio_file and AUDIO_AVAILABLE:
+            try:
+                # Check if audio has finished playing
+                if not pygame.mixer.music.get_busy() and self.current_time > 1.0:
+                    song_ended = True
+            except Exception:
+                # If we can't check, use time-based check
+                if self.current_time >= duration:
+                    song_ended = True
+        else:
+            # For generated audio, use time-based check
+            if self.current_time >= duration:
+                song_ended = True
+        
+        if song_ended:
             self._next_song()
             return
         
-        # Schedule next update
-        self.after(1000, self._update_progress)
+        # Schedule next update (more frequent for smoother progress)
+        self.after(100, self._update_progress)
     
     def _format_time(self, seconds: int) -> str:
-        """Format time as M:SS"""
-        mins = seconds // 60
-        secs = seconds % 60
-        return f"{mins}:{secs:02d}"
+        """Format time as M:SS or H:MM:SS if over an hour"""
+        if seconds < 3600:
+            mins = seconds // 60
+            secs = seconds % 60
+            return f"{mins}:{secs:02d}"
+        else:
+            hours = seconds // 3600
+            mins = (seconds % 3600) // 60
+            secs = seconds % 60
+            return f"{hours}:{mins:02d}:{secs:02d}"
+    
+    def _get_audio_duration(self, file_path: str) -> float:
+        """Get the duration of an audio file in seconds"""
+        if not file_path or not os.path.exists(file_path):
+            return None
+        
+        # Try mutagen for MP3 files
+        if MUTAGEN_AVAILABLE and file_path.lower().endswith('.mp3'):
+            try:
+                audio_file = MP3(file_path)
+                duration = audio_file.info.length
+                return duration
+            except (ID3NoHeaderError, Exception):
+                pass
+        
+        # Try pygame.Sound for WAV/OGG files
+        if AUDIO_AVAILABLE:
+            try:
+                sound = pygame.mixer.Sound(file_path)
+                duration = sound.get_length()
+                return duration
+            except Exception:
+                pass
+        
+        # If we can't determine duration, return None
+        return None
     
     def _start_audio(self):
         """Start audio playback"""
@@ -529,15 +639,21 @@ class MusicPlayerApp(tk.Frame):
             self.using_audio_file = True
             pygame.mixer.music.load(file_path)
             pygame.mixer.music.set_volume(self.volume / 100.0)
-            pygame.mixer.music.play(-1)  # -1 means loop indefinitely
+            pygame.mixer.music.play(0)  # Play once (0 = no loops), let it play fully
             
-            # Monitor playback in a thread
+            # Monitor playback in a thread to detect when it ends
             def monitor_playback():
                 while self.is_playing and not self.stop_audio:
-                    if not pygame.mixer.music.get_busy():
-                        # Song ended, check if we should continue
-                        if self.is_playing:
-                            pygame.mixer.music.play(-1)
+                    try:
+                        if not pygame.mixer.music.get_busy():
+                            # Song has finished playing
+                            if self.is_playing:
+                                # Small delay to ensure UI updates before moving to next song
+                                time.sleep(0.5)
+                                # The progress update will detect this and move to next song
+                                break
+                    except Exception:
+                        break
                     time.sleep(0.1)
             
             self.audio_thread = threading.Thread(target=monitor_playback, daemon=True)
