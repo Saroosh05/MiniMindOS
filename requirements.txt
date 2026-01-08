@@ -2,8 +2,15 @@
 # ===========================
 # Roll Numbers: 2023-CS-67, 2023-CS-63
 
-# This project uses only Python standard library modules
-# No external packages are required!
+# Optional (for enhanced features):
+# - pygame-ce (for music player audio)
+#   Install with: pip install pygame-ce
+#   Note: For Python 3.12+, use pygame-ce instead of pygame for better compatibility
+#   If not installed, music player will use system beeps (Windows) or visual-only mode
+#
+# - Pillow (for story reader images - PNG, JPEG support)
+#   Install with: pip install Pillow
+#   If not installed, story images will only support GIF format
 
 # Required (included with Python):
 # - tkinter (GUI)

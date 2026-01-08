@@ -224,6 +224,11 @@ class ParentalControl:
         """Attempt to enter parent mode"""
         if self.check_password(password):
             self.is_parent_mode = True
+            # Automatically unlock system when parent logs in
+            if self.is_locked:
+                self.is_locked = False
+                self.lock_reason = ""
+                self.logger.log("UNLOCK", "System unlocked by parent login", "parent")
             self.logger.log("SECURITY", "Parent mode activated", "parent")
             return True
         

@@ -180,8 +180,8 @@ class MiniMindOS:
     
     def _launch_app(self, app_id: str):
         """Launch an application"""
-        # Check if locked
-        if self.parental.is_locked:
+        # Allow parent panel to launch even when locked (parents need access)
+        if self.parental.is_locked and app_id != 'parent_panel':
             messagebox.showinfo(
                 "System Locked 🔒",
                 self.parental.lock_reason

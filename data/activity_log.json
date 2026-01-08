@@ -1,140 +1,2184 @@
 [
   {
-    "timestamp": 1766308814.7677574,
-    "datetime": "2025-12-21 14:20:14",
-    "event_type": "SCHEDULER",
-    "details": "Scheduler started",
+    "timestamp": 1767866471.6415646,
+    "datetime": "2026-01-08 15:01:11",
+    "event_type": "SECURITY",
+    "details": "Parent mode deactivated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767866471.6421678,
+    "datetime": "2026-01-08 15:01:11",
+    "event_type": "MEMORY",
+    "details": "Freed 64KB from PID 2",
     "user": "kid"
   },
   {
-    "timestamp": 1766308814.770536,
-    "datetime": "2025-12-21 14:20:14",
-    "event_type": "SYSTEM",
-    "details": "MiniMind OS started",
+    "timestamp": 1767866471.6426122,
+    "datetime": "2026-01-08 15:01:11",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Parent Panel (PID=2)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767866472.6328769,
+    "datetime": "2026-01-08 15:01:12",
+    "event_type": "LOCK",
+    "details": "Daily time limit reached! \ud83d\udd50",
     "user": "system"
   },
   {
-    "timestamp": 1766309032.7439864,
-    "datetime": "2025-12-21 14:23:52",
-    "event_type": "SCHEDULER",
-    "details": "Scheduler started",
-    "user": "kid"
+    "timestamp": 1767866484.0868368,
+    "datetime": "2026-01-08 15:01:24",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
   },
   {
-    "timestamp": 1766309032.749761,
-    "datetime": "2025-12-21 14:23:52",
-    "event_type": "SYSTEM",
-    "details": "MiniMind OS started",
-    "user": "system"
+    "timestamp": 1767866490.716815,
+    "datetime": "2026-01-08 15:01:30",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
   },
   {
-    "timestamp": 1766309085.5937204,
-    "datetime": "2025-12-21 14:24:45",
-    "event_type": "APP_LAUNCH",
-    "details": "Launched Drawing",
-    "user": "kid"
+    "timestamp": 1767866501.468073,
+    "datetime": "2026-01-08 15:01:41",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
   },
   {
-    "timestamp": 1766309085.6172104,
-    "datetime": "2025-12-21 14:24:45",
-    "event_type": "MEMORY",
-    "details": "Allocated 128KB for PID 1 at address 256",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309085.6189418,
-    "datetime": "2025-12-21 14:24:45",
-    "event_type": "PROCESS",
-    "details": "Process created: Drawing App (PID=1, Memory=128KB)",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309085.6202598,
-    "datetime": "2025-12-21 14:24:45",
-    "event_type": "SCHEDULER",
-    "details": "Process 1 added to ready queue (priority 4)",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309085.6415625,
-    "datetime": "2025-12-21 14:24:45",
-    "event_type": "PROCESS",
-    "details": "Process 1 state: Ready -> Running",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309090.6638381,
-    "datetime": "2025-12-21 14:24:50",
-    "event_type": "MEMORY",
-    "details": "Freed 128KB from PID 1",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309090.6676755,
-    "datetime": "2025-12-21 14:24:50",
-    "event_type": "PROCESS",
-    "details": "Process terminated: Drawing App (PID=1)",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309097.762303,
-    "datetime": "2025-12-21 14:24:57",
-    "event_type": "APP_LAUNCH",
-    "details": "Launched Stories",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309097.8248842,
-    "datetime": "2025-12-21 14:24:57",
-    "event_type": "MEMORY",
-    "details": "Allocated 64KB for PID 2 at address 256",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309097.8295336,
-    "datetime": "2025-12-21 14:24:57",
-    "event_type": "PROCESS",
-    "details": "Process created: Story Reader (PID=2, Memory=64KB)",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309097.832868,
-    "datetime": "2025-12-21 14:24:57",
-    "event_type": "SCHEDULER",
-    "details": "Process 2 added to ready queue (priority 3)",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309097.904776,
-    "datetime": "2025-12-21 14:24:57",
-    "event_type": "PROCESS",
-    "details": "Process 2 state: Ready -> Running",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309168.6003492,
-    "datetime": "2025-12-21 14:26:08",
-    "event_type": "STORY",
-    "details": "Opened story: \ud83d\udc3b Goldilocks and the Three Bears",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309191.33193,
-    "datetime": "2025-12-21 14:26:31",
-    "event_type": "STORY",
-    "details": "Opened story: \ud83d\udc30 The Little Bunny",
-    "user": "kid"
-  },
-  {
-    "timestamp": 1766309210.9560077,
-    "datetime": "2025-12-21 14:26:50",
+    "timestamp": 1767866587.6698904,
+    "datetime": "2026-01-08 15:03:07",
     "event_type": "SCHEDULER",
     "details": "Scheduler stopped",
     "user": "kid"
   },
   {
-    "timestamp": 1766309210.9618285,
-    "datetime": "2025-12-21 14:26:50",
+    "timestamp": 1767866587.6710358,
+    "datetime": "2026-01-08 15:03:07",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767866593.0654223,
+    "datetime": "2026-01-08 15:03:13",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767866593.0691895,
+    "datetime": "2026-01-08 15:03:13",
+    "event_type": "LOCK",
+    "details": "Daily time limit reached! \ud83d\udd50",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767866595.1348019,
+    "datetime": "2026-01-08 15:03:15",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869061.7866075,
+    "datetime": "2026-01-08 15:44:21",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869067.8895981,
+    "datetime": "2026-01-08 15:44:27",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869067.8908424,
+    "datetime": "2026-01-08 15:44:27",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869222.9994073,
+    "datetime": "2026-01-08 15:47:02",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869223.002383,
+    "datetime": "2026-01-08 15:47:03",
+    "event_type": "LOCK",
+    "details": "Daily time limit reached! \ud83d\udd50",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869225.2279692,
+    "datetime": "2026-01-08 15:47:05",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869230.895468,
+    "datetime": "2026-01-08 15:47:10",
+    "event_type": "UNLOCK",
+    "details": "System unlocked by parent login",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869230.896387,
+    "datetime": "2026-01-08 15:47:10",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869230.912061,
+    "datetime": "2026-01-08 15:47:10",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869230.9130688,
+    "datetime": "2026-01-08 15:47:10",
+    "event_type": "PROCESS",
+    "details": "Process created: Parent Panel (PID=1, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869230.9138794,
+    "datetime": "2026-01-08 15:47:10",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869230.9246113,
+    "datetime": "2026-01-08 15:47:10",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869239.4591422,
+    "datetime": "2026-01-08 15:47:19",
+    "event_type": "POLICY",
+    "details": "Policy updated: {'daily_limit_minutes': 134, 'bedtime_start': '20:00', 'bedtime_end': '07:00'}",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869240.7877946,
+    "datetime": "2026-01-08 15:47:20",
+    "event_type": "SECURITY",
+    "details": "Parent mode deactivated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869240.788949,
+    "datetime": "2026-01-08 15:47:20",
+    "event_type": "MEMORY",
+    "details": "Freed 64KB from PID 1",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869240.7898664,
+    "datetime": "2026-01-08 15:47:20",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Parent Panel (PID=1)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869252.5779235,
+    "datetime": "2026-01-08 15:47:32",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869252.5969403,
+    "datetime": "2026-01-08 15:47:32",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 2 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869252.598262,
+    "datetime": "2026-01-08 15:47:32",
+    "event_type": "PROCESS",
+    "details": "Process created: Parent Panel (PID=2, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869252.599384,
+    "datetime": "2026-01-08 15:47:32",
+    "event_type": "SCHEDULER",
+    "details": "Process 2 added to ready queue (priority 5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869252.601414,
+    "datetime": "2026-01-08 15:47:32",
+    "event_type": "PROCESS",
+    "details": "Process 2 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869255.8530664,
+    "datetime": "2026-01-08 15:47:35",
+    "event_type": "POLICY",
+    "details": "App music disabled",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869256.4221115,
+    "datetime": "2026-01-08 15:47:36",
+    "event_type": "POLICY",
+    "details": "App music enabled",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869270.324521,
+    "datetime": "2026-01-08 15:47:50",
+    "event_type": "SECURITY",
+    "details": "Parent mode deactivated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767869270.32582,
+    "datetime": "2026-01-08 15:47:50",
+    "event_type": "MEMORY",
+    "details": "Freed 64KB from PID 2",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869270.326921,
+    "datetime": "2026-01-08 15:47:50",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Parent Panel (PID=2)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869271.2597055,
+    "datetime": "2026-01-08 15:47:51",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869271.2664223,
+    "datetime": "2026-01-08 15:47:51",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 3 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869271.2677057,
+    "datetime": "2026-01-08 15:47:51",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=3, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869271.2688675,
+    "datetime": "2026-01-08 15:47:51",
+    "event_type": "SCHEDULER",
+    "details": "Process 3 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869271.2707064,
+    "datetime": "2026-01-08 15:47:51",
+    "event_type": "PROCESS",
+    "details": "Process 3 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869273.2059886,
+    "datetime": "2026-01-08 15:47:53",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869273.2084713,
+    "datetime": "2026-01-08 15:47:53",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869280.0554104,
+    "datetime": "2026-01-08 15:48:00",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869280.0573232,
+    "datetime": "2026-01-08 15:48:00",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869449.3077056,
+    "datetime": "2026-01-08 15:50:49",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869449.31056,
+    "datetime": "2026-01-08 15:50:49",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869450.4128628,
+    "datetime": "2026-01-08 15:50:50",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869450.4212382,
+    "datetime": "2026-01-08 15:50:50",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869450.4228506,
+    "datetime": "2026-01-08 15:50:50",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=1, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869450.4242718,
+    "datetime": "2026-01-08 15:50:50",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869450.5116153,
+    "datetime": "2026-01-08 15:50:50",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869452.7781065,
+    "datetime": "2026-01-08 15:50:52",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869452.7811687,
+    "datetime": "2026-01-08 15:50:52",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869466.3729112,
+    "datetime": "2026-01-08 15:51:06",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869466.3754516,
+    "datetime": "2026-01-08 15:51:06",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869471.5506303,
+    "datetime": "2026-01-08 15:51:11",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869471.553201,
+    "datetime": "2026-01-08 15:51:11",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869496.6361675,
+    "datetime": "2026-01-08 15:51:36",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 If You're Happy and You Know It",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869496.6407082,
+    "datetime": "2026-01-08 15:51:36",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 If You're Happy and You Know It",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869511.2560713,
+    "datetime": "2026-01-08 15:51:51",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Baby Shark",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869511.262735,
+    "datetime": "2026-01-08 15:51:51",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Baby Shark",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869518.0336597,
+    "datetime": "2026-01-08 15:51:58",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Itsy Bitsy Spider",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869518.0382447,
+    "datetime": "2026-01-08 15:51:58",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Itsy Bitsy Spider",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869521.4302976,
+    "datetime": "2026-01-08 15:52:01",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869521.4353418,
+    "datetime": "2026-01-08 15:52:01",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869532.5196223,
+    "datetime": "2026-01-08 15:52:12",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869532.526833,
+    "datetime": "2026-01-08 15:52:12",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869544.277935,
+    "datetime": "2026-01-08 15:52:24",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869544.3479772,
+    "datetime": "2026-01-08 15:52:24",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869562.296554,
+    "datetime": "2026-01-08 15:52:42",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869562.3095596,
+    "datetime": "2026-01-08 15:52:42",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869577.3283598,
+    "datetime": "2026-01-08 15:52:57",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 If You're Happy and You Know It",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869577.336053,
+    "datetime": "2026-01-08 15:52:57",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 If You're Happy and You Know It",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869585.8888638,
+    "datetime": "2026-01-08 15:53:05",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Baby Shark",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869585.89563,
+    "datetime": "2026-01-08 15:53:05",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Baby Shark",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869610.0906262,
+    "datetime": "2026-01-08 15:53:30",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Itsy Bitsy Spider",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869610.0945046,
+    "datetime": "2026-01-08 15:53:30",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Itsy Bitsy Spider",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869619.873804,
+    "datetime": "2026-01-08 15:53:39",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Row Row Row Your Boat",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869619.8807309,
+    "datetime": "2026-01-08 15:53:39",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Row Row Row Your Boat",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869627.847582,
+    "datetime": "2026-01-08 15:53:47",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869627.8527455,
+    "datetime": "2026-01-08 15:53:47",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869638.7525568,
+    "datetime": "2026-01-08 15:53:58",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869638.7580037,
+    "datetime": "2026-01-08 15:53:58",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869639.9285688,
+    "datetime": "2026-01-08 15:53:59",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869639.9323936,
+    "datetime": "2026-01-08 15:53:59",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869650.714886,
+    "datetime": "2026-01-08 15:54:10",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869650.7201953,
+    "datetime": "2026-01-08 15:54:10",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767869664.3548522,
+    "datetime": "2026-01-08 15:54:24",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869664.367159,
+    "datetime": "2026-01-08 15:54:24",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869664.3702626,
+    "datetime": "2026-01-08 15:54:24",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=1, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869664.3729358,
+    "datetime": "2026-01-08 15:54:24",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869664.4662507,
+    "datetime": "2026-01-08 15:54:24",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869666.9013915,
+    "datetime": "2026-01-08 15:54:26",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869666.9047377,
+    "datetime": "2026-01-08 15:54:26",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869692.0557115,
+    "datetime": "2026-01-08 15:54:52",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869692.0621052,
+    "datetime": "2026-01-08 15:54:52",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869692.065492,
+    "datetime": "2026-01-08 15:54:52",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869693.3780098,
+    "datetime": "2026-01-08 15:54:53",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869693.3806272,
+    "datetime": "2026-01-08 15:54:53",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869693.3838725,
+    "datetime": "2026-01-08 15:54:53",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869705.9936705,
+    "datetime": "2026-01-08 15:55:05",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869705.996525,
+    "datetime": "2026-01-08 15:55:05",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869705.999933,
+    "datetime": "2026-01-08 15:55:05",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869719.2615983,
+    "datetime": "2026-01-08 15:55:19",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869719.269809,
+    "datetime": "2026-01-08 15:55:19",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869719.2776945,
+    "datetime": "2026-01-08 15:55:19",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869734.4488385,
+    "datetime": "2026-01-08 15:55:34",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869734.455193,
+    "datetime": "2026-01-08 15:55:34",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869734.4620974,
+    "datetime": "2026-01-08 15:55:34",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869756.6238773,
+    "datetime": "2026-01-08 15:55:56",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869756.6305046,
+    "datetime": "2026-01-08 15:55:56",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869756.6386454,
+    "datetime": "2026-01-08 15:55:56",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767869763.7518134,
+    "datetime": "2026-01-08 15:56:03",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875382.575103,
+    "datetime": "2026-01-08 17:29:42",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875382.5794125,
+    "datetime": "2026-01-08 17:29:42",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875442.0265868,
+    "datetime": "2026-01-08 17:30:42",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875442.0299656,
+    "datetime": "2026-01-08 17:30:42",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875442.0336916,
+    "datetime": "2026-01-08 17:30:42",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875491.5554302,
+    "datetime": "2026-01-08 17:31:31",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875841.113348,
+    "datetime": "2026-01-08 17:37:21",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875841.117489,
+    "datetime": "2026-01-08 17:37:21",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767875848.042381,
+    "datetime": "2026-01-08 17:37:28",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875848.050247,
+    "datetime": "2026-01-08 17:37:28",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767875849.4730036,
+    "datetime": "2026-01-08 17:37:29",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875849.4858027,
+    "datetime": "2026-01-08 17:37:29",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875849.4889371,
+    "datetime": "2026-01-08 17:37:29",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=1, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875849.491896,
+    "datetime": "2026-01-08 17:37:29",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875849.5477214,
+    "datetime": "2026-01-08 17:37:29",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875851.3945136,
+    "datetime": "2026-01-08 17:37:31",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875851.3989966,
+    "datetime": "2026-01-08 17:37:31",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875872.101196,
+    "datetime": "2026-01-08 17:37:52",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875872.10898,
+    "datetime": "2026-01-08 17:37:52",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875872.1130505,
+    "datetime": "2026-01-08 17:37:52",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875875.9074483,
+    "datetime": "2026-01-08 17:37:55",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767875875.9110851,
+    "datetime": "2026-01-08 17:37:55",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876001.2982981,
+    "datetime": "2026-01-08 17:40:01",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876001.3052619,
+    "datetime": "2026-01-08 17:40:01",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876346.179423,
+    "datetime": "2026-01-08 17:45:46",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876346.1999176,
+    "datetime": "2026-01-08 17:45:46",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876379.7435112,
+    "datetime": "2026-01-08 17:46:19",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876379.7508998,
+    "datetime": "2026-01-08 17:46:19",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876381.9033995,
+    "datetime": "2026-01-08 17:46:21",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876381.9395573,
+    "datetime": "2026-01-08 17:46:21",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876381.9487426,
+    "datetime": "2026-01-08 17:46:21",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=1, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876381.9609885,
+    "datetime": "2026-01-08 17:46:21",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876382.0611484,
+    "datetime": "2026-01-08 17:46:22",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876384.0616972,
+    "datetime": "2026-01-08 17:46:24",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876384.0718021,
+    "datetime": "2026-01-08 17:46:24",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876393.3106592,
+    "datetime": "2026-01-08 17:46:33",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876393.3221588,
+    "datetime": "2026-01-08 17:46:33",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876393.3291867,
+    "datetime": "2026-01-08 17:46:33",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876395.9983792,
+    "datetime": "2026-01-08 17:46:35",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876396.008049,
+    "datetime": "2026-01-08 17:46:36",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Row Row Row Your Boat",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876396.0180523,
+    "datetime": "2026-01-08 17:46:36",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Row Row Row Your Boat",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876409.1180003,
+    "datetime": "2026-01-08 17:46:49",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876409.1352303,
+    "datetime": "2026-01-08 17:46:49",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876409.1570437,
+    "datetime": "2026-01-08 17:46:49",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876416.7295876,
+    "datetime": "2026-01-08 17:46:56",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876416.7456563,
+    "datetime": "2026-01-08 17:46:56",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876421.686495,
+    "datetime": "2026-01-08 17:47:01",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876421.6934452,
+    "datetime": "2026-01-08 17:47:01",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876422.7683635,
+    "datetime": "2026-01-08 17:47:02",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Stories",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876422.8145247,
+    "datetime": "2026-01-08 17:47:02",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876422.8267536,
+    "datetime": "2026-01-08 17:47:02",
+    "event_type": "PROCESS",
+    "details": "Process created: Story Reader (PID=1, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876422.8401246,
+    "datetime": "2026-01-08 17:47:02",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876422.891814,
+    "datetime": "2026-01-08 17:47:02",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876423.864266,
+    "datetime": "2026-01-08 17:47:03",
+    "event_type": "STORY",
+    "details": "Opened story: \ud83d\udc3b Goldilocks and the Three Bears",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876639.2179923,
+    "datetime": "2026-01-08 17:50:39",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876639.2390733,
+    "datetime": "2026-01-08 17:50:39",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876866.7929657,
+    "datetime": "2026-01-08 17:54:26",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876866.805668,
+    "datetime": "2026-01-08 17:54:26",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767876875.1979222,
+    "datetime": "2026-01-08 17:54:35",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Drawing",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876875.2621415,
+    "datetime": "2026-01-08 17:54:35",
+    "event_type": "MEMORY",
+    "details": "Allocated 128KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876875.28125,
+    "datetime": "2026-01-08 17:54:35",
+    "event_type": "PROCESS",
+    "details": "Process created: Drawing App (PID=1, Memory=128KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876875.2990313,
+    "datetime": "2026-01-08 17:54:35",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876875.330371,
+    "datetime": "2026-01-08 17:54:35",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876879.5843692,
+    "datetime": "2026-01-08 17:54:39",
+    "event_type": "MEMORY",
+    "details": "Freed 128KB from PID 1",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876879.6062946,
+    "datetime": "2026-01-08 17:54:39",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Drawing App (PID=1)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876881.3101423,
+    "datetime": "2026-01-08 17:54:41",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Stories",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876881.3962893,
+    "datetime": "2026-01-08 17:54:41",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 2 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876881.4133458,
+    "datetime": "2026-01-08 17:54:41",
+    "event_type": "PROCESS",
+    "details": "Process created: Story Reader (PID=2, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876881.425086,
+    "datetime": "2026-01-08 17:54:41",
+    "event_type": "SCHEDULER",
+    "details": "Process 2 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876881.4748418,
+    "datetime": "2026-01-08 17:54:41",
+    "event_type": "PROCESS",
+    "details": "Process 2 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876884.6591034,
+    "datetime": "2026-01-08 17:54:44",
+    "event_type": "MEMORY",
+    "details": "Freed 64KB from PID 2",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876884.6806989,
+    "datetime": "2026-01-08 17:54:44",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Story Reader (PID=2)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876887.0896595,
+    "datetime": "2026-01-08 17:54:47",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Puzzle",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876887.1297727,
+    "datetime": "2026-01-08 17:54:47",
+    "event_type": "MEMORY",
+    "details": "Allocated 80KB for PID 3 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876887.1413631,
+    "datetime": "2026-01-08 17:54:47",
+    "event_type": "PROCESS",
+    "details": "Process created: Puzzle Games (PID=3, Memory=80KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876887.1539698,
+    "datetime": "2026-01-08 17:54:47",
+    "event_type": "SCHEDULER",
+    "details": "Process 3 added to ready queue (priority 4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876887.2160373,
+    "datetime": "2026-01-08 17:54:47",
+    "event_type": "PROCESS",
+    "details": "Process 3 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876892.0075955,
+    "datetime": "2026-01-08 17:54:52",
+    "event_type": "PUZZLE",
+    "details": "Started Memory Game",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876922.2213452,
+    "datetime": "2026-01-08 17:55:22",
+    "event_type": "MEMORY",
+    "details": "Freed 80KB from PID 3",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876922.2436132,
+    "datetime": "2026-01-08 17:55:22",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Puzzle Games (PID=3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876923.416803,
+    "datetime": "2026-01-08 17:55:23",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876923.4520843,
+    "datetime": "2026-01-08 17:55:23",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 4 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876923.4621809,
+    "datetime": "2026-01-08 17:55:23",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=4, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876923.4741387,
+    "datetime": "2026-01-08 17:55:23",
+    "event_type": "SCHEDULER",
+    "details": "Process 4 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876923.5011914,
+    "datetime": "2026-01-08 17:55:23",
+    "event_type": "PROCESS",
+    "details": "Process 4 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876932.6248214,
+    "datetime": "2026-01-08 17:55:32",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876932.654859,
+    "datetime": "2026-01-08 17:55:32",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876939.6201606,
+    "datetime": "2026-01-08 17:55:39",
+    "event_type": "MEMORY",
+    "details": "Freed 96KB from PID 4",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876939.6472256,
+    "datetime": "2026-01-08 17:55:39",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Music Player (PID=4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876943.4591596,
+    "datetime": "2026-01-08 17:55:43",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876943.5430171,
+    "datetime": "2026-01-08 17:55:43",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 5 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876943.5694768,
+    "datetime": "2026-01-08 17:55:43",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=5, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876943.598877,
+    "datetime": "2026-01-08 17:55:43",
+    "event_type": "SCHEDULER",
+    "details": "Process 5 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876943.6988435,
+    "datetime": "2026-01-08 17:55:43",
+    "event_type": "PROCESS",
+    "details": "Process 5 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876949.1562688,
+    "datetime": "2026-01-08 17:55:49",
+    "event_type": "MEMORY",
+    "details": "Freed 96KB from PID 5",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876949.1800108,
+    "datetime": "2026-01-08 17:55:49",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Music Player (PID=5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876951.502585,
+    "datetime": "2026-01-08 17:55:51",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Drawing",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876951.5803776,
+    "datetime": "2026-01-08 17:55:51",
+    "event_type": "MEMORY",
+    "details": "Allocated 128KB for PID 6 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876951.6080837,
+    "datetime": "2026-01-08 17:55:51",
+    "event_type": "PROCESS",
+    "details": "Process created: Drawing App (PID=6, Memory=128KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876951.6394477,
+    "datetime": "2026-01-08 17:55:51",
+    "event_type": "SCHEDULER",
+    "details": "Process 6 added to ready queue (priority 4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876951.6637747,
+    "datetime": "2026-01-08 17:55:51",
+    "event_type": "PROCESS",
+    "details": "Process 6 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876962.2982347,
+    "datetime": "2026-01-08 17:56:02",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/drawing_20260108_175602.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876962.3229349,
+    "datetime": "2026-01-08 17:56:02",
+    "event_type": "FILESYSTEM",
+    "details": "Failed to save filesystem: 'NoneType' object has no attribute 'value'",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876962.3502984,
+    "datetime": "2026-01-08 17:56:02",
+    "event_type": "DRAWING",
+    "details": "Drawing saved: drawing_20260108_175602.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876968.1455512,
+    "datetime": "2026-01-08 17:56:08",
+    "event_type": "DRAWING",
+    "details": "Selected color: #FFFFFF",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876973.9974964,
+    "datetime": "2026-01-08 17:56:13",
+    "event_type": "DRAWING",
+    "details": "Canvas cleared",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767876988.844113,
+    "datetime": "2026-01-08 17:56:28",
+    "event_type": "DRAWING",
+    "details": "Selected color: #FF0000",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877005.2529693,
+    "datetime": "2026-01-08 17:56:45",
+    "event_type": "DRAWING",
+    "details": "Canvas cleared",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877041.7949302,
+    "datetime": "2026-01-08 17:57:21",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_175721.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877041.8145041,
+    "datetime": "2026-01-08 17:57:21",
+    "event_type": "FILESYSTEM",
+    "details": "Failed to save filesystem: 'NoneType' object has no attribute 'value'",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877044.3434935,
+    "datetime": "2026-01-08 17:57:24",
+    "event_type": "DRAWING",
+    "details": "Canvas cleared",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877046.249136,
+    "datetime": "2026-01-08 17:57:26",
+    "event_type": "MEMORY",
+    "details": "Freed 128KB from PID 6",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877046.2632396,
+    "datetime": "2026-01-08 17:57:26",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Drawing App (PID=6)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877052.8920453,
+    "datetime": "2026-01-08 17:57:32",
+    "event_type": "FILESYSTEM",
+    "details": "Failed to save filesystem: 'NoneType' object has no attribute 'value'",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877053.0082128,
+    "datetime": "2026-01-08 17:57:33",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877053.0257342,
+    "datetime": "2026-01-08 17:57:33",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767877072.0148036,
+    "datetime": "2026-01-08 17:57:52",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877072.0265749,
+    "datetime": "2026-01-08 17:57:52",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767877076.1498501,
+    "datetime": "2026-01-08 17:57:56",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Music",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877076.2094638,
+    "datetime": "2026-01-08 17:57:56",
+    "event_type": "MEMORY",
+    "details": "Allocated 96KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877076.2293673,
+    "datetime": "2026-01-08 17:57:56",
+    "event_type": "PROCESS",
+    "details": "Process created: Music Player (PID=1, Memory=96KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877076.2498505,
+    "datetime": "2026-01-08 17:57:56",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877076.3382666,
+    "datetime": "2026-01-08 17:57:56",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877078.3258908,
+    "datetime": "2026-01-08 17:57:58",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877078.360659,
+    "datetime": "2026-01-08 17:57:58",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877090.0845337,
+    "datetime": "2026-01-08 17:58:10",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877090.1112561,
+    "datetime": "2026-01-08 17:58:10",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877090.1510587,
+    "datetime": "2026-01-08 17:58:10",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877111.3541353,
+    "datetime": "2026-01-08 17:58:31",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877111.370136,
+    "datetime": "2026-01-08 17:58:31",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877111.4152298,
+    "datetime": "2026-01-08 17:58:31",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 The Wheels on the Bus",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877126.1574605,
+    "datetime": "2026-01-08 17:58:46",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877126.1735861,
+    "datetime": "2026-01-08 17:58:46",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 If You're Happy and You Know It",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877126.2172709,
+    "datetime": "2026-01-08 17:58:46",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 If You're Happy and You Know It",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877133.1108465,
+    "datetime": "2026-01-08 17:58:53",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877133.128559,
+    "datetime": "2026-01-08 17:58:53",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Baby Shark",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877133.1755257,
+    "datetime": "2026-01-08 17:58:53",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Baby Shark",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877145.560953,
+    "datetime": "2026-01-08 17:59:05",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877145.5773423,
+    "datetime": "2026-01-08 17:59:05",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Itsy Bitsy Spider",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877145.6138654,
+    "datetime": "2026-01-08 17:59:05",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Itsy Bitsy Spider",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877154.1915693,
+    "datetime": "2026-01-08 17:59:14",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877154.2147424,
+    "datetime": "2026-01-08 17:59:14",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Row Row Row Your Boat",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877154.2800157,
+    "datetime": "2026-01-08 17:59:14",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Row Row Row Your Boat",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877160.4524226,
+    "datetime": "2026-01-08 17:59:20",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877160.475273,
+    "datetime": "2026-01-08 17:59:20",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877160.532812,
+    "datetime": "2026-01-08 17:59:20",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Head Shoulders Knees and Toes",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877167.8223908,
+    "datetime": "2026-01-08 17:59:27",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877167.8407948,
+    "datetime": "2026-01-08 17:59:27",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877167.8671982,
+    "datetime": "2026-01-08 17:59:27",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb5 Twinkle Twinkle Little Star",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877176.3286219,
+    "datetime": "2026-01-08 17:59:36",
+    "event_type": "MUSIC",
+    "details": "Paused",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877176.3472483,
+    "datetime": "2026-01-08 17:59:36",
+    "event_type": "MUSIC",
+    "details": "Selected: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877176.3712113,
+    "datetime": "2026-01-08 17:59:36",
+    "event_type": "MUSIC",
+    "details": "Playing: \ud83c\udfb6 Old MacDonald Had a Farm",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877179.2192929,
+    "datetime": "2026-01-08 17:59:39",
+    "event_type": "MEMORY",
+    "details": "Freed 96KB from PID 1",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877179.2329156,
+    "datetime": "2026-01-08 17:59:39",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Music Player (PID=1)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877182.018752,
+    "datetime": "2026-01-08 17:59:42",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Puzzle",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877182.0692732,
+    "datetime": "2026-01-08 17:59:42",
+    "event_type": "MEMORY",
+    "details": "Allocated 80KB for PID 2 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877182.0972917,
+    "datetime": "2026-01-08 17:59:42",
+    "event_type": "PROCESS",
+    "details": "Process created: Puzzle Games (PID=2, Memory=80KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877182.115556,
+    "datetime": "2026-01-08 17:59:42",
+    "event_type": "SCHEDULER",
+    "details": "Process 2 added to ready queue (priority 4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877182.134208,
+    "datetime": "2026-01-08 17:59:42",
+    "event_type": "PROCESS",
+    "details": "Process 2 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877186.3117833,
+    "datetime": "2026-01-08 17:59:46",
+    "event_type": "PUZZLE",
+    "details": "Started Color Match",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877192.1273685,
+    "datetime": "2026-01-08 17:59:52",
+    "event_type": "PUZZLE",
+    "details": "Started Color Match",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877196.794466,
+    "datetime": "2026-01-08 17:59:56",
+    "event_type": "PUZZLE",
+    "details": "Started Color Match",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877201.9737787,
+    "datetime": "2026-01-08 18:00:01",
+    "event_type": "MEMORY",
+    "details": "Freed 80KB from PID 2",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877201.9912808,
+    "datetime": "2026-01-08 18:00:01",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Puzzle Games (PID=2)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877212.6055968,
+    "datetime": "2026-01-08 18:00:12",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877212.6611338,
+    "datetime": "2026-01-08 18:00:12",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 3 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877212.6812198,
+    "datetime": "2026-01-08 18:00:12",
+    "event_type": "PROCESS",
+    "details": "Process created: Parent Panel (PID=3, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877212.697077,
+    "datetime": "2026-01-08 18:00:12",
+    "event_type": "SCHEDULER",
+    "details": "Process 3 added to ready queue (priority 5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877212.7815766,
+    "datetime": "2026-01-08 18:00:12",
+    "event_type": "PROCESS",
+    "details": "Process 3 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877217.9077966,
+    "datetime": "2026-01-08 18:00:17",
+    "event_type": "POLICY",
+    "details": "App music disabled",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877225.2872877,
+    "datetime": "2026-01-08 18:00:25",
+    "event_type": "POLICY",
+    "details": "Policy updated: {'daily_limit_minutes': 39, 'bedtime_start': '20:00', 'bedtime_end': '07:00'}",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877226.927001,
+    "datetime": "2026-01-08 18:00:26",
+    "event_type": "SECURITY",
+    "details": "Parent mode deactivated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877226.94541,
+    "datetime": "2026-01-08 18:00:26",
+    "event_type": "MEMORY",
+    "details": "Freed 64KB from PID 3",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877226.9652073,
+    "datetime": "2026-01-08 18:00:26",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Parent Panel (PID=3)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877227.082419,
+    "datetime": "2026-01-08 18:00:27",
+    "event_type": "LOCK",
+    "details": "Daily time limit reached! \ud83d\udd50",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767877237.664028,
+    "datetime": "2026-01-08 18:00:37",
+    "event_type": "UNLOCK",
+    "details": "System unlocked by parent login",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877237.6780765,
+    "datetime": "2026-01-08 18:00:37",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877237.736528,
+    "datetime": "2026-01-08 18:00:37",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 4 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877237.749213,
+    "datetime": "2026-01-08 18:00:37",
+    "event_type": "PROCESS",
+    "details": "Process created: Parent Panel (PID=4, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877237.7642238,
+    "datetime": "2026-01-08 18:00:37",
+    "event_type": "SCHEDULER",
+    "details": "Process 4 added to ready queue (priority 5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877237.808262,
+    "datetime": "2026-01-08 18:00:37",
+    "event_type": "PROCESS",
+    "details": "Process 4 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877246.8394268,
+    "datetime": "2026-01-08 18:00:46",
+    "event_type": "POLICY",
+    "details": "Policy updated: {'daily_limit_minutes': 144, 'bedtime_start': '20:00', 'bedtime_end': '07:00'}",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877248.2123642,
+    "datetime": "2026-01-08 18:00:48",
+    "event_type": "SECURITY",
+    "details": "Parent mode deactivated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767877248.229546,
+    "datetime": "2026-01-08 18:00:48",
+    "event_type": "MEMORY",
+    "details": "Freed 64KB from PID 4",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877248.2468038,
+    "datetime": "2026-01-08 18:00:48",
+    "event_type": "PROCESS",
+    "details": "Process terminated: Parent Panel (PID=4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877255.4494133,
+    "datetime": "2026-01-08 18:00:55",
+    "event_type": "APP_LAUNCH",
+    "details": "Launched Drawing",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877255.5021977,
+    "datetime": "2026-01-08 18:00:55",
+    "event_type": "MEMORY",
+    "details": "Allocated 128KB for PID 5 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877255.5223668,
+    "datetime": "2026-01-08 18:00:55",
+    "event_type": "PROCESS",
+    "details": "Process created: Drawing App (PID=5, Memory=128KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877255.5446773,
+    "datetime": "2026-01-08 18:00:55",
+    "event_type": "SCHEDULER",
+    "details": "Process 5 added to ready queue (priority 4)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877255.6018796,
+    "datetime": "2026-01-08 18:00:55",
+    "event_type": "PROCESS",
+    "details": "Process 5 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877269.1681676,
+    "datetime": "2026-01-08 18:01:09",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877269.1921604,
+    "datetime": "2026-01-08 18:01:09",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767877272.377567,
+    "datetime": "2026-01-08 18:01:12",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877272.3968818,
+    "datetime": "2026-01-08 18:01:12",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767877275.391246,
+    "datetime": "2026-01-08 18:01:15",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767877275.4382143,
+    "datetime": "2026-01-08 18:01:15",
     "event_type": "SYSTEM",
     "details": "MiniMind OS shutdown",
     "user": "system"

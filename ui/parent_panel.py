@@ -112,6 +112,11 @@ class PasswordDialog(tk.Toplevel):
             self.parental.set_password(password)
             messagebox.showinfo("Success", "Password set successfully!")
             self.parental.is_parent_mode = True
+            # Automatically unlock system when parent sets password
+            if self.parental.is_locked:
+                self.parental.is_locked = False
+                self.parental.lock_reason = ""
+                self.parental.logger.log("UNLOCK", "System unlocked by parent login", "parent")
             self.result = True
             self.destroy()
         else:

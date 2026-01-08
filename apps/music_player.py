@@ -12,13 +12,28 @@ Roll Numbers: 2023-CS-67, 2023-CS-63
 
 import tkinter as tk
 from tkinter import messagebox
-from typing import Callable, List, Dict
+from typing import Callable, Dict
 import threading
 import time
 import math
-
 import sys
 import os
+import array
+
+# Try to import pygame for audio playback
+try:
+    import pygame
+    pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=512)
+    AUDIO_AVAILABLE = True
+except ImportError:
+    AUDIO_AVAILABLE = False
+    # Fallback: use winsound on Windows
+    try:
+        import winsound
+        WINSOUND_AVAILABLE = True
+    except ImportError:
+        WINSOUND_AVAILABLE = False
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ui.styles import Styles
 
@@ -28,16 +43,16 @@ class MusicPlayerApp(tk.Frame):
     Simulates playing music with visual feedback.
     """
     
-    # Pre-loaded songs (simulated)
+    # Pre-loaded songs
     SONGS = [
-        {'id': 1, 'title': '🎵 Twinkle Twinkle Little Star', 'duration': 60, 'icon': '⭐'},
-        {'id': 2, 'title': '🎶 Old MacDonald Had a Farm', 'duration': 90, 'icon': '🐄'},
-        {'id': 3, 'title': '🎵 The Wheels on the Bus', 'duration': 75, 'icon': '🚌'},
-        {'id': 4, 'title': '🎶 If You\'re Happy and You Know It', 'duration': 45, 'icon': '😊'},
-        {'id': 5, 'title': '🎵 Baby Shark', 'duration': 120, 'icon': '🦈'},
-        {'id': 6, 'title': '🎶 Itsy Bitsy Spider', 'duration': 50, 'icon': '🕷️'},
-        {'id': 7, 'title': '🎵 Row Row Row Your Boat', 'duration': 40, 'icon': '🚣'},
-        {'id': 8, 'title': '🎶 Head Shoulders Knees and Toes', 'duration': 55, 'icon': '🧍'},
+        {'id': 1, 'title': '🎵 Twinkle Twinkle Little Star', 'duration': 60, 'icon': '⭐', 'filename': 'twinkle_twinkle.mp3'},
+        {'id': 2, 'title': '🎶 Old MacDonald Had a Farm', 'duration': 90, 'icon': '🐄', 'filename': 'old_macdonald.mp3'},
+        {'id': 3, 'title': '🎵 The Wheels on the Bus', 'duration': 75, 'icon': '🚌', 'filename': 'wheels_on_bus.mp3'},
+        {'id': 4, 'title': '🎶 If You\'re Happy and You Know It', 'duration': 45, 'icon': '😊', 'filename': 'happy_clap.mp3'},
+        {'id': 5, 'title': '🎵 Baby Shark', 'duration': 120, 'icon': '🦈', 'filename': 'baby_shark.mp3'},
+        {'id': 6, 'title': '🎶 Itsy Bitsy Spider', 'duration': 50, 'icon': '🕷️', 'filename': 'itsy_bitsy.mp3'},
+        {'id': 7, 'title': '🎵 Row Row Row Your Boat', 'duration': 40, 'icon': '🚣', 'filename': 'row_boat.mp3'},
+        {'id': 8, 'title': '🎶 Head Shoulders Knees and Toes', 'duration': 55, 'icon': '🧍', 'filename': 'head_shoulders.mp3'},
     ]
     
     def __init__(self, parent, os_kernel, on_close: Callable = None):
@@ -54,6 +69,15 @@ class MusicPlayerApp(tk.Frame):
         # Animation state
         self.animation_running = False
         self.animation_angle = 0
+        
+        # Audio playback
+        self.audio_thread = None
+        self.stop_audio = False
+        self.using_audio_file = False  # Track if we're using actual audio file
+        
+        # Get music directory path
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.music_dir = os.path.join(base_dir, 'data', 'music')
         
         self._create_widgets()
     
@@ -283,8 +307,13 @@ class MusicPlayerApp(tk.Frame):
     
     def _select_song(self, song: Dict):
         """Select a song to play"""
+        # Stop current playback
+        if self.is_playing:
+            self._pause()
+        
         self.current_song = song
         self.current_time = 0
+        self.using_audio_file = False
         self.song_title.configure(text=song['title'])
         self.duration_label.configure(text=self._format_time(song['duration']))
         
@@ -315,6 +344,18 @@ class MusicPlayerApp(tk.Frame):
         
         self.is_playing = True
         self.play_btn.configure(text="⏸️")
+        self.stop_audio = False
+        
+        # Resume if paused (using audio file)
+        if AUDIO_AVAILABLE and self.using_audio_file:
+            try:
+                pygame.mixer.music.unpause()
+            except Exception:
+                # If resume fails, restart audio
+                self._start_audio()
+        else:
+            # Start audio playback
+            self._start_audio()
         
         # Start animation
         self.animation_running = True
@@ -334,7 +375,18 @@ class MusicPlayerApp(tk.Frame):
         self.is_playing = False
         self.play_btn.configure(text="▶️")
         self.animation_running = False
+        self.stop_audio = True
         self._draw_music_icon(0)
+        
+        # Stop audio
+        if AUDIO_AVAILABLE:
+            try:
+                if self.using_audio_file:
+                    pygame.mixer.music.pause()
+                else:
+                    pygame.mixer.music.stop()
+            except Exception:
+                pass
         
         self.os_kernel.parental.logger.log(
             "MUSIC",
@@ -376,6 +428,14 @@ class MusicPlayerApp(tk.Frame):
         if self.volume > max_vol:
             self.volume = max_vol
             self.volume_scale.set(max_vol)
+        
+        # Update audio volume
+        if AUDIO_AVAILABLE:
+            try:
+                # pygame volume is 0.0 to 1.0
+                pygame.mixer.music.set_volume(self.volume / 100.0)
+            except Exception:
+                pass
     
     def _animate(self):
         """Run animation loop"""
@@ -421,10 +481,277 @@ class MusicPlayerApp(tk.Frame):
         secs = seconds % 60
         return f"{mins}:{secs:02d}"
     
+    def _start_audio(self):
+        """Start audio playback"""
+        if AUDIO_AVAILABLE:
+            # First try to load actual audio file
+            audio_file_path = self._get_audio_file_path()
+            if audio_file_path and os.path.exists(audio_file_path):
+                self._play_audio_file(audio_file_path)
+            else:
+                # Fallback to generated tones
+                self._play_pygame_audio()
+        elif WINSOUND_AVAILABLE:
+            # Use winsound as fallback (Windows only)
+            self._play_winsound_audio()
+        else:
+            # No audio available - just visual feedback
+            pass
+    
+    def _get_audio_file_path(self):
+        """Get the path to the audio file for the current song"""
+        if not self.current_song:
+            return None
+        
+        filename = self.current_song.get('filename', '')
+        if not filename:
+            return None
+        
+        # Try the exact filename first
+        file_path = os.path.join(self.music_dir, filename)
+        if os.path.exists(file_path):
+            return file_path
+        
+        # Try different formats with base name
+        base_name = filename.rsplit('.', 1)[0] if '.' in filename else filename
+        formats = ['.mp3', '.wav', '.ogg', '.m4a']
+        
+        for fmt in formats:
+            file_path = os.path.join(self.music_dir, base_name + fmt)
+            if os.path.exists(file_path):
+                return file_path
+        
+        return None
+    
+    def _play_audio_file(self, file_path):
+        """Play an actual audio file using pygame"""
+        try:
+            self.using_audio_file = True
+            pygame.mixer.music.load(file_path)
+            pygame.mixer.music.set_volume(self.volume / 100.0)
+            pygame.mixer.music.play(-1)  # -1 means loop indefinitely
+            
+            # Monitor playback in a thread
+            def monitor_playback():
+                while self.is_playing and not self.stop_audio:
+                    if not pygame.mixer.music.get_busy():
+                        # Song ended, check if we should continue
+                        if self.is_playing:
+                            pygame.mixer.music.play(-1)
+                    time.sleep(0.1)
+            
+            self.audio_thread = threading.Thread(target=monitor_playback, daemon=True)
+            self.audio_thread.start()
+            
+        except Exception as e:
+            # If file playback fails, fall back to generated tones
+            self.using_audio_file = False
+            self._play_pygame_audio()
+    
+    def _get_song_melody(self, song_id: int):
+        """Get the melody notes for a specific song"""
+        # Musical note frequencies (in Hz)
+        # C4=261.63, D4=293.66, E4=329.63, F4=349.23, G4=392.00, A4=440.00, B4=493.88
+        # C5=523.25, D5=587.33, E5=659.25, F5=698.46, G5=783.99, A5=880.00
+        
+        melodies = {
+            1: [  # Twinkle Twinkle Little Star
+                (523.25, 0.5), (523.25, 0.5), (659.25, 0.5), (659.25, 0.5),  # C C E E
+                (698.46, 0.5), (698.46, 0.5), (659.25, 1.0),  # F F E (long)
+                (587.33, 0.5), (587.33, 0.5), (523.25, 0.5), (523.25, 0.5),  # D D C C
+                (587.33, 0.5), (587.33, 0.5), (523.25, 1.0),  # D D C (long)
+            ],
+            2: [  # Old MacDonald Had a Farm
+                (523.25, 0.4), (523.25, 0.4), (523.25, 0.4), (392.00, 0.4),  # C C C G
+                (440.00, 0.4), (440.00, 0.4), (392.00, 0.8),  # A A G (long)
+                (349.23, 0.4), (349.23, 0.4), (392.00, 0.4), (440.00, 0.4),  # F F G A
+                (523.25, 0.4), (440.00, 0.4), (392.00, 0.8),  # C A G (long)
+            ],
+            3: [  # The Wheels on the Bus
+                (523.25, 0.5), (587.33, 0.5), (659.25, 0.5), (523.25, 0.5),  # C D E C
+                (523.25, 0.5), (587.33, 0.5), (659.25, 0.5), (523.25, 0.5),  # C D E C
+                (659.25, 0.5), (698.46, 0.5), (783.99, 1.0),  # E F G (long)
+                (659.25, 0.5), (698.46, 0.5), (783.99, 1.0),  # E F G (long)
+            ],
+            4: [  # If You're Happy and You Know It
+                (523.25, 0.3), (523.25, 0.3), (659.25, 0.3), (659.25, 0.3),  # C C E E
+                (698.46, 0.3), (698.46, 0.3), (659.25, 0.6),  # F F E (long)
+                (587.33, 0.3), (587.33, 0.3), (523.25, 0.3), (523.25, 0.3),  # D D C C
+                (587.33, 0.3), (587.33, 0.3), (523.25, 0.6),  # D D C (long)
+            ],
+            5: [  # Baby Shark
+                (392.00, 0.2), (392.00, 0.2), (392.00, 0.2), (392.00, 0.2),  # G G G G
+                (440.00, 0.2), (440.00, 0.2), (440.00, 0.2), (440.00, 0.2),  # A A A A
+                (523.25, 0.4), (523.25, 0.4), (523.25, 0.4), (523.25, 0.4),  # C C C C
+                (440.00, 0.2), (440.00, 0.2), (392.00, 0.4),  # A A G
+            ],
+            6: [  # Itsy Bitsy Spider
+                (523.25, 0.4), (587.33, 0.4), (659.25, 0.4), (523.25, 0.4),  # C D E C
+                (659.25, 0.4), (698.46, 0.4), (659.25, 0.4), (587.33, 0.4),  # E F E D
+                (523.25, 0.4), (587.33, 0.4), (659.25, 0.4), (523.25, 0.4),  # C D E C
+                (587.33, 0.8), (523.25, 0.8),  # D (long) C (long)
+            ],
+            7: [  # Row Row Row Your Boat
+                (523.25, 0.5), (523.25, 0.5), (523.25, 0.5), (659.25, 0.5),  # C C C E
+                (698.46, 0.5), (698.46, 0.5), (659.25, 0.5), (523.25, 0.5),  # F F E C
+                (587.33, 0.5), (587.33, 0.5), (523.25, 0.5), (392.00, 0.5),  # D D C G
+                (523.25, 1.0),  # C (long)
+            ],
+            8: [  # Head Shoulders Knees and Toes
+                (523.25, 0.3), (523.25, 0.3), (659.25, 0.3), (659.25, 0.3),  # C C E E
+                (698.46, 0.3), (698.46, 0.3), (659.25, 0.3), (659.25, 0.3),  # F F E E
+                (523.25, 0.3), (523.25, 0.3), (587.33, 0.3), (587.33, 0.3),  # C C D D
+                (523.25, 0.6), (392.00, 0.6),  # C (long) G (long)
+            ],
+        }
+        
+        return melodies.get(song_id, melodies[1])  # Default to Twinkle Twinkle
+    
+    def _play_pygame_audio(self):
+        """Play audio using pygame"""
+        try:
+            # Generate a simple musical tone using array generation
+            sample_rate = 22050
+            duration_sec = self.current_song['duration']
+            
+            # Generate a pleasant tone sequence
+            def generate_tone(freq, duration_sec, sample_rate=22050):
+                num_samples = int(sample_rate * duration_sec)
+                samples = array.array('h')  # signed short integers
+                
+                for i in range(num_samples):
+                    t = float(i) / sample_rate
+                    # Generate sine wave with harmonics
+                    sample = math.sin(2 * math.pi * freq * t)
+                    sample += 0.3 * math.sin(2 * math.pi * freq * 2 * t)
+                    sample += 0.1 * math.sin(2 * math.pi * freq * 3 * t)
+                    # Normalize and convert to 16-bit integer
+                    sample = int(sample * 16383)  # Max value for 16-bit signed
+                    samples.append(sample)
+                
+                return samples
+            
+            # Get the melody for this specific song
+            melody_notes = self._get_song_melody(self.current_song['id'])
+            
+            # Calculate total melody duration
+            total_melody_duration = sum(duration for _, duration in melody_notes)
+            
+            # Scale note durations to fit the song duration (loop if needed)
+            scale_factor = duration_sec / total_melody_duration if total_melody_duration > 0 else 1.0
+            if scale_factor < 1.0:
+                # Song is shorter than melody, scale down
+                melody_notes = [(freq, dur * scale_factor) for freq, dur in melody_notes]
+            else:
+                # Song is longer, we'll loop the melody
+                loops_needed = int(scale_factor) + 1
+                original_notes = melody_notes[:]
+                for _ in range(loops_needed):
+                    if sum(dur for _, dur in melody_notes) >= duration_sec:
+                        break
+                    melody_notes.extend(original_notes)
+                
+                # Trim to exact duration
+                current_duration = 0
+                final_notes = []
+                for freq, dur in melody_notes:
+                    if current_duration + dur > duration_sec:
+                        dur = duration_sec - current_duration
+                        if dur > 0:
+                            final_notes.append((freq, dur))
+                        break
+                    final_notes.append((freq, dur))
+                    current_duration += dur
+                melody_notes = final_notes
+            
+            # Generate audio for all notes in the melody
+            all_samples = array.array('h')
+            for freq, note_duration in melody_notes:
+                tone_samples = generate_tone(freq, note_duration, sample_rate)
+                all_samples.extend(tone_samples)
+            
+            # Convert array to format pygame can use
+            # pygame.sndarray.make_sound can work with array.array directly
+            # but we need to convert to a format it understands
+            try:
+                # Try using numpy if available for better stereo support
+                import numpy as np
+                audio_array = np.frombuffer(all_samples, dtype=np.int16)
+                # Convert to stereo
+                stereo = np.zeros((len(audio_array), 2), dtype=np.int16)
+                stereo[:, 0] = audio_array
+                stereo[:, 1] = audio_array
+                sound = pygame.sndarray.make_sound(stereo)
+            except (ImportError, ValueError, AttributeError):
+                # Fallback: create mono sound from array
+                # Convert array.array to list of tuples for stereo simulation
+                mono_list = list(all_samples)
+                # Create simple stereo by duplicating channels
+                stereo_data = [(s, s) for s in mono_list]
+                sound = pygame.sndarray.make_sound(stereo_data)
+            
+            sound.set_volume(self.volume / 100.0)
+            
+            # Play in a loop
+            def play_loop():
+                while self.is_playing and not self.stop_audio:
+                    sound.play()
+                    time.sleep(duration_sec)
+                    if not self.is_playing:
+                        break
+            
+            self.audio_thread = threading.Thread(target=play_loop, daemon=True)
+            self.audio_thread.start()
+            
+        except Exception:
+            # Fallback to simple beep pattern
+            self._play_winsound_audio()
+    
+    def _play_winsound_audio(self):
+        """Play audio using winsound (Windows fallback)"""
+        if not WINSOUND_AVAILABLE:
+            return
+        
+        # Get melody for this song
+        melody_notes = self._get_song_melody(self.current_song['id'])
+        
+        def play_beep_pattern():
+            beep_duration_ms = 200  # base duration in milliseconds
+            while self.is_playing and not self.stop_audio:
+                try:
+                    # Play the melody pattern
+                    for freq, duration in melody_notes:
+                        if not self.is_playing or self.stop_audio:
+                            break
+                        # Convert duration to milliseconds
+                        duration_ms = int(duration * 1000)
+                        # Limit beep duration (winsound has limits)
+                        duration_ms = min(duration_ms, 1000)
+                        if duration_ms > 50:  # Only beep if duration is reasonable
+                            winsound.Beep(int(freq), duration_ms)
+                            time.sleep(0.05)  # Small pause between notes
+                    
+                    # Small pause before looping
+                    if self.is_playing and not self.stop_audio:
+                        time.sleep(0.2)
+                except Exception:
+                    break
+        
+        self.audio_thread = threading.Thread(target=play_beep_pattern, daemon=True)
+        self.audio_thread.start()
+    
     def _close_app(self):
         """Close the music player"""
         self.is_playing = False
         self.animation_running = False
+        self.stop_audio = True
+        
+        # Stop audio
+        if AUDIO_AVAILABLE:
+            try:
+                pygame.mixer.music.stop()
+            except Exception:
+                pass
         
         if self.on_close:
             self.on_close()

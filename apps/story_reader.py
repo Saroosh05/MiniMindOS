@@ -21,6 +21,13 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from ui.styles import Styles
 
+# Try to import PIL for better image support
+try:
+    from PIL import Image, ImageTk
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
+
 class StoryReaderApp(tk.Frame):
     """
     Kid-friendly story reading application.
@@ -34,14 +41,39 @@ class StoryReaderApp(tk.Frame):
             'title': '🐻 Goldilocks and the Three Bears',
             'icon': '🐻',
             'pages': [
-                "Once upon a time, there were three bears who lived in a cozy house in the forest.\n\nThere was Papa Bear, Mama Bear, and little Baby Bear. 🐻",
-                "One morning, they made porridge for breakfast. But it was too hot to eat!\n\n'Let's go for a walk while it cools,' said Mama Bear. 🚶",
-                "While they were away, a little girl named Goldilocks came by. She knocked on the door, but no one answered.\n\nSo she walked right in! 🚪",
-                "Goldilocks saw the three bowls of porridge. She tried Papa Bear's - too hot! 🔥\n\nShe tried Mama Bear's - too cold! ❄️\n\nBaby Bear's was just right! 😋",
-                "Then Goldilocks found three chairs. Papa's was too hard. Mama's was too soft.\n\nBaby Bear's was just right - until it broke! 💥",
-                "Feeling sleepy, Goldilocks found three beds upstairs.\n\nPapa's was too hard. Mama's was too soft.\n\nBaby Bear's was just right! She fell fast asleep. 😴",
-                "When the bears came home, they found their porridge eaten and chair broken!\n\nUpstairs, they found Goldilocks in Baby Bear's bed! 😱",
-                "Goldilocks woke up and saw the three bears! She jumped up and ran out of the house as fast as she could.\n\nAnd she never came back again! 🏃‍♀️\n\n🌟 THE END 🌟"
+                # Format: Can be string (old format) or dict with 'text' and 'image' (new format)
+                {
+                    'text': "Once upon a time, there were three bears who lived in a cozy house in the forest.\n\nThere was Papa Bear, Mama Bear, and little Baby Bear. 🐻",
+                    'image': 'page1_three_bears.png'  # Optional: image filename
+                },
+                {
+                    'text': "One morning, they made porridge for breakfast. But it was too hot to eat!\n\n'Let's go for a walk while it cools,' said Mama Bear. 🚶",
+                    'image': 'page2_porridge.png'
+                },
+                {
+                    'text': "While they were away, a little girl named Goldilocks came by. She knocked on the door, but no one answered.\n\nSo she walked right in! 🚪",
+                    'image': 'page3_goldilocks.png'
+                },
+                {
+                    'text': "Goldilocks saw the three bowls of porridge. She tried Papa Bear's - too hot! 🔥\n\nShe tried Mama Bear's - too cold! ❄️\n\nBaby Bear's was just right! 😋",
+                    'image': 'page4_porridge_tasting.png'
+                },
+                {
+                    'text': "Then Goldilocks found three chairs. Papa's was too hard. Mama's was too soft.\n\nBaby Bear's was just right - until it broke! 💥",
+                    'image': 'page5_chairs.png'
+                },
+                {
+                    'text': "Feeling sleepy, Goldilocks found three beds upstairs.\n\nPapa's was too hard. Mama's was too soft.\n\nBaby Bear's was just right! She fell fast asleep. 😴",
+                    'image': 'page6_beds.png'
+                },
+                {
+                    'text': "When the bears came home, they found their porridge eaten and chair broken!\n\nUpstairs, they found Goldilocks in Baby Bear's bed! 😱",
+                    'image': 'page7_bears_find.png'
+                },
+                {
+                    'text': "Goldilocks woke up and saw the three bears! She jumped up and ran out of the house as fast as she could.\n\nAnd she never came back again! 🏃‍♀️\n\n🌟 THE END 🌟",
+                    'image': 'page8_goldilocks_runs.png'
+                }
             ]
         },
         {
@@ -89,6 +121,13 @@ class StoryReaderApp(tk.Frame):
         self.current_story = None
         self.current_page = 0
         
+        # Get images directory path
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.images_dir = os.path.join(base_dir, 'data', 'stories', 'images')
+        
+        # Store loaded images to prevent garbage collection
+        self.current_image_ref = None
+        
         self._create_widgets()
         self._show_story_list()
     
@@ -100,6 +139,12 @@ class StoryReaderApp(tk.Frame):
         # Content area
         self.content = tk.Frame(self, bg=Styles.get_color('bg_main'))
         self.content.pack(fill='both', expand=True)
+        
+        # Bind keyboard shortcuts
+        self.bind_all('<Right>', lambda e: self._next_page() if self.current_story else None)
+        self.bind_all('<Left>', lambda e: self._prev_page() if self.current_story else None)
+        self.bind_all('<space>', lambda e: self._next_page() if self.current_story else None)
+        self.bind_all('<Return>', lambda e: self._next_page() if self.current_story else None)
     
     def _create_header(self):
         """Create header bar"""
@@ -191,7 +236,15 @@ class StoryReaderApp(tk.Frame):
             widget.destroy()
         
         story = self.current_story
-        page_text = story['pages'][self.current_page]
+        # Support both old format (string) and new format (dict with text and image)
+        page_data = story['pages'][self.current_page]
+        if isinstance(page_data, dict):
+            page_text = page_data.get('text', '')
+            page_image = page_data.get('image', None)
+        else:
+            page_text = page_data
+            page_image = None
+        
         total_pages = len(story['pages'])
         
         # Update title
@@ -212,9 +265,24 @@ class StoryReaderApp(tk.Frame):
         )
         page_indicator.pack(pady=10)
         
+        # Main content area (image and text)
+        content_frame = tk.Frame(read_frame, bg=Styles.get_color('bg_card'))
+        content_frame.pack(fill='both', expand=True, padx=30, pady=20)
+        
+        # Try to load and display image
+        image_path = None
+        if page_image:
+            image_path = self._get_image_path(story['id'], page_image)
+        
+        if image_path and os.path.exists(image_path):
+            # Display image above text
+            image_label = self._load_and_display_image(content_frame, image_path)
+            if image_label:
+                image_label.pack(pady=(0, 20))
+        
         # Story text
-        text_frame = tk.Frame(read_frame, bg=Styles.get_color('bg_card'))
-        text_frame.pack(fill='both', expand=True, padx=30, pady=20)
+        text_frame = tk.Frame(content_frame, bg=Styles.get_color('bg_card'))
+        text_frame.pack(fill='both', expand=True)
         
         story_text = tk.Text(
             text_frame,
@@ -231,6 +299,9 @@ class StoryReaderApp(tk.Frame):
         story_text.insert('1.0', page_text)
         story_text.configure(state='disabled')  # Read-only
         story_text.pack(fill='both', expand=True)
+        
+        # Set focus to enable keyboard navigation
+        read_frame.focus_set()
         
         # Navigation buttons
         nav_frame = tk.Frame(read_frame, bg=Styles.get_color('bg_card'))
@@ -308,6 +379,50 @@ class StoryReaderApp(tk.Frame):
             self.current_story = None
         else:
             self._close_app()
+    
+    def _get_image_path(self, story_id: str, image_filename: str):
+        """Get the full path to a story image"""
+        if not image_filename:
+            return None
+        return os.path.join(self.images_dir, story_id, image_filename)
+    
+    def _load_and_display_image(self, parent, image_path: str):
+        """Load and display an image, returning the label widget"""
+        try:
+            if PIL_AVAILABLE:
+                # Use PIL for better image support (JPEG, PNG, etc.)
+                img = Image.open(image_path)
+                # Resize to fit nicely (max width 500px, maintain aspect ratio)
+                max_width = 500
+                if img.width > max_width:
+                    ratio = max_width / img.width
+                    new_height = int(img.height * ratio)
+                    # Use LANCZOS resampling (fallback to ANTIALIAS for older PIL)
+                    try:
+                        img = img.resize((max_width, new_height), Image.Resampling.LANCZOS)
+                    except AttributeError:
+                        img = img.resize((max_width, new_height), Image.ANTIALIAS)
+                
+                self.current_image_ref = ImageTk.PhotoImage(img)
+            else:
+                # Fallback to tkinter PhotoImage (supports GIF and PPM)
+                if image_path.lower().endswith(('.gif', '.ppm', '.pgm')):
+                    self.current_image_ref = tk.PhotoImage(file=image_path)
+                else:
+                    # Can't load this format without PIL
+                    return None
+            
+            image_label = tk.Label(
+                parent,
+                image=self.current_image_ref,
+                bg=Styles.get_color('bg_card')
+            )
+            return image_label
+            
+        except Exception as e:
+            # If image loading fails, just continue without image
+            print(f"Could not load image {image_path}: {e}")
+            return None
     
     def _close_app(self):
         """Close the story reader"""
