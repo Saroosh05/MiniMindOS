@@ -1,12 +1,10 @@
-# MiniMind OS 🌟
+# MiniMind OS
 
 **A Child-Friendly Operating System Prototype**
 
-Roll Numbers: 2023-CS-67, 2023-CS-63
-
 ---
 
-## 📖 Description
+## Description
 
 MiniMind OS is a child-friendly operating system prototype designed for kids aged 2-8 years. It provides a safe, educational computing environment with parental controls, time limits, and age-appropriate applications.
 
@@ -20,7 +18,7 @@ This project demonstrates core Operating System concepts including:
 
 ---
 
-## 🚀 Features
+## Features
 
 ### Kid Mode
 - 🎨 **Drawing App** - Paint and create artwork with auto-save
@@ -44,7 +42,7 @@ This project demonstrates core Operating System concepts including:
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 - **Python 3.8+**
 - **Tkinter** (usually included with Python)
@@ -53,7 +51,7 @@ No additional packages required!
 
 ---
 
-## 🎮 How to Run
+## How to Run
 
 1. Open a terminal/command prompt
 2. Navigate to the MiniMindOS folder
@@ -70,7 +68,7 @@ python3 main.py
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 MiniMindOS/
@@ -117,7 +115,7 @@ MiniMindOS/
 
 ---
 
-## 🖥️ OS Modules Mapping
+## OS Modules Mapping
 
 | OS Concept | Implementation |
 |------------|----------------|
@@ -130,7 +128,7 @@ MiniMindOS/
 
 ---
 
-## 👨‍👩‍👧 Parent Guide
+## Parent Guide
 
 ### First Time Setup
 1. Click the parent icon (👨‍👩‍👧) in the top-left corner
@@ -152,19 +150,7 @@ MiniMindOS/
 
 ---
 
-## 🎯 Demo Script (4 minutes)
-
-1. **Home Screen** (30s) - Show the colorful home screen with app icons
-2. **Drawing App** (1m) - Draw a shape, show auto-save feature
-3. **Story Reader** (45s) - Open a story, navigate pages
-4. **Music Player** (30s) - Play a song, show visual animation
-5. **Puzzle Game** (30s) - Quick color match game
-6. **Parent Panel** (45s) - Show app controls, time limits, activity log
-7. **Process Viewer** (30s) - Show running processes, memory usage
-
----
-
-## 🔧 Technical Details
+## Technical Details
 
 ### Process States
 - NEW → READY → RUNNING → WAITING → TERMINATED
@@ -185,19 +171,4 @@ MiniMindOS/
 - `/shared/` - Shared media (read-only)
 
 ---
-
-## 📝 License
-
-This project was created for educational purposes as part of an Operating Systems Lab course.
-
----
-
-## 👥 Team
-
-- **2023-CS-67**
-- **2023-CS-63**
-
----
-
-**MiniMind OS** - *Making learning fun and safe!* 🌟
 
