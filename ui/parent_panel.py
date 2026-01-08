@@ -10,6 +10,7 @@ Roll Numbers: 2023-CS-67, 2023-CS-63
 import tkinter as tk
 from tkinter import ttk, messagebox, simpledialog
 from typing import Callable
+from datetime import datetime
 from .styles import Styles
 
 class PasswordDialog(tk.Toplevel):
@@ -356,42 +357,153 @@ class ParentPanel(tk.Frame):
         return frame
     
     def _create_activity_log_tab(self) -> tk.Frame:
-        """Create activity log section"""
+        """Create activity log section with improved UI"""
         frame = tk.Frame(self, bg=Styles.get_color('bg_card'))
         
+        # Header
+        header = tk.Frame(frame, bg=Styles.get_color('bg_card'))
+        header.pack(fill='x', padx=20, pady=15)
+        
         title = tk.Label(
-            frame,
-            text="Activity Log",
+            header,
+            text="📋 Activity Log",
             font=Styles.get_font('heading'),
             bg=Styles.get_color('bg_card')
         )
-        title.pack(pady=20)
+        title.pack(side='left')
         
-        # Log listbox with scrollbar
-        list_frame = tk.Frame(frame, bg=Styles.get_color('bg_card'))
-        list_frame.pack(fill='both', expand=True, padx=20, pady=10)
+        # Filter frame
+        filter_frame = tk.Frame(frame, bg=Styles.get_color('bg_card'))
+        filter_frame.pack(fill='x', padx=20, pady=10)
         
-        scrollbar = tk.Scrollbar(list_frame)
+        # Filter by event type
+        tk.Label(
+            filter_frame,
+            text="Filter:",
+            font=Styles.get_font('normal'),
+            bg=Styles.get_color('bg_card')
+        ).pack(side='left', padx=5)
+        
+        self.log_filter_var = tk.StringVar(value="ALL")
+        filter_options = [
+            ("All Events", "ALL"),
+            ("🔒 Security", "SECURITY"),
+            ("📱 Apps", "APP"),
+            ("🎵 Music", "MUSIC"),
+            ("📚 Stories", "STORY"),
+            ("🎨 Drawing", "DRAWING"),
+            ("🧩 Puzzle", "PUZZLE"),
+            ("⏰ Time", "LOCK"),
+            ("💾 System", "SYSTEM"),
+            ("⚙️ Process", "PROCESS"),
+            ("🧠 Memory", "MEMORY"),
+            ("📅 Scheduler", "SCHEDULER")
+        ]
+        
+        for text, value in filter_options:
+            rb = tk.Radiobutton(
+                filter_frame,
+                text=text,
+                variable=self.log_filter_var,
+                value=value,
+                font=Styles.get_font('small'),
+                bg=Styles.get_color('bg_card'),
+                selectcolor=Styles.get_color('bg_card'),
+                command=self._refresh_logs
+            )
+            rb.pack(side='left', padx=5)
+        
+        # View options
+        view_frame = tk.Frame(frame, bg=Styles.get_color('bg_card'))
+        view_frame.pack(fill='x', padx=20, pady=5)
+        
+        tk.Label(
+            view_frame,
+            text="View:",
+            font=Styles.get_font('normal'),
+            bg=Styles.get_color('bg_card')
+        ).pack(side='left', padx=5)
+        
+        self.log_view_var = tk.StringVar(value="RECENT")
+        view_options = [
+            ("Recent (100)", "RECENT"),
+            ("Today", "TODAY"),
+            ("All", "ALL")
+        ]
+        
+        for text, value in view_options:
+            rb = tk.Radiobutton(
+                view_frame,
+                text=text,
+                variable=self.log_view_var,
+                value=value,
+                font=Styles.get_font('small'),
+                bg=Styles.get_color('bg_card'),
+                selectcolor=Styles.get_color('bg_card'),
+                command=self._refresh_logs
+            )
+            rb.pack(side='left', padx=5)
+        
+        # Log display with Treeview for better organization
+        log_container = tk.Frame(frame, bg=Styles.get_color('bg_card'))
+        log_container.pack(fill='both', expand=True, padx=20, pady=10)
+        
+        # Create Treeview with columns
+        columns = ('Time', 'Type', 'Event', 'User')
+        self.log_tree = ttk.Treeview(
+            log_container,
+            columns=columns,
+            show='headings',
+            height=18
+        )
+        
+        # Configure columns
+        self.log_tree.heading('Time', text='⏰ Time')
+        self.log_tree.heading('Type', text='📋 Type')
+        self.log_tree.heading('Event', text='📝 Event Details')
+        self.log_tree.heading('User', text='👤 User')
+        
+        self.log_tree.column('Time', width=150, anchor='w')
+        self.log_tree.column('Type', width=120, anchor='center')
+        self.log_tree.column('Event', width=400, anchor='w')
+        self.log_tree.column('User', width=80, anchor='center')
+        
+        # Configure alternating row colors
+        style = ttk.Style()
+        style.configure("Treeview", 
+                       background=Styles.get_color('bg_card'),
+                       foreground=Styles.get_color('text_dark'),
+                       fieldbackground=Styles.get_color('bg_card'),
+                       rowheight=25)
+        style.configure("Treeview.Heading",
+                       background=Styles.get_color('bg_dark'),
+                       foreground='white',
+                       font=Styles.get_font('normal'))
+        
+        # Tag for alternating rows
+        self.log_tree.tag_configure('evenrow', background='#F5F5F5')
+        self.log_tree.tag_configure('oddrow', background='#FFFFFF')
+        
+        # Scrollbar
+        scrollbar = ttk.Scrollbar(log_container, orient='vertical', command=self.log_tree.yview)
+        self.log_tree.configure(yscrollcommand=scrollbar.set)
+        
+        self.log_tree.pack(side='left', fill='both', expand=True)
         scrollbar.pack(side='right', fill='y')
         
-        self.log_listbox = tk.Listbox(
-            list_frame,
-            font=Styles.get_font('small'),
-            yscrollcommand=scrollbar.set,
-            width=80,
-            height=15
-        )
-        self.log_listbox.pack(side='left', fill='both', expand=True)
-        scrollbar.config(command=self.log_listbox.yview)
-        
-        # Buttons
+        # Action buttons
         btn_frame = tk.Frame(frame, bg=Styles.get_color('bg_card'))
-        btn_frame.pack(pady=10)
+        btn_frame.pack(pady=15)
         
         refresh_btn = tk.Button(
             btn_frame,
             text="🔄 Refresh",
             font=Styles.get_font('normal'),
+            bg=Styles.get_color('info'),
+            fg='white',
+            relief='flat',
+            padx=15,
+            pady=5,
             command=self._refresh_logs
         )
         refresh_btn.pack(side='left', padx=10)
@@ -402,9 +514,22 @@ class ParentPanel(tk.Frame):
             font=Styles.get_font('normal'),
             bg=Styles.get_color('warning'),
             fg='white',
+            relief='flat',
+            padx=15,
+            pady=5,
             command=self._clear_logs
         )
         clear_btn.pack(side='left', padx=10)
+        
+        # Stats label
+        self.log_stats_label = tk.Label(
+            btn_frame,
+            text="",
+            font=Styles.get_font('small'),
+            bg=Styles.get_color('bg_card'),
+            fg=Styles.get_color('text_muted')
+        )
+        self.log_stats_label.pack(side='left', padx=20)
         
         # Load initial logs
         self._refresh_logs()
@@ -509,13 +634,79 @@ class ParentPanel(tk.Frame):
         self.after(2000, lambda: self.status_label.configure(text=""))
     
     def _refresh_logs(self):
-        """Refresh the activity log display"""
-        self.log_listbox.delete(0, 'end')
+        """Refresh the activity log display with filtering"""
+        # Clear existing items
+        for item in self.log_tree.get_children():
+            self.log_tree.delete(item)
         
-        logs = self.parental.logger.get_logs(limit=100)
-        for log in logs:
-            text = f"[{log['datetime']}] [{log['event_type']}] {log['details']}"
-            self.log_listbox.insert('end', text)
+        # Get logs based on view option
+        view_option = self.log_view_var.get()
+        if view_option == "TODAY":
+            logs = self.parental.logger.get_today_logs()
+        elif view_option == "ALL":
+            logs = self.parental.logger.get_logs(limit=None)
+        else:  # RECENT
+            logs = self.parental.logger.get_logs(limit=100)
+        
+        # Filter by event type
+        filter_type = self.log_filter_var.get()
+        if filter_type != "ALL":
+            logs = [log for log in logs if log['event_type'] == filter_type]
+        
+        # Event type icons and colors
+        event_icons = {
+            'SECURITY': '🔒',
+            'APP': '📱',
+            'MUSIC': '🎵',
+            'STORY': '📚',
+            'DRAWING': '🎨',
+            'PUZZLE': '🧩',
+            'LOCK': '⏰',
+            'SYSTEM': '💾',
+            'PROCESS': '⚙️',
+            'MEMORY': '🧠',
+            'SCHEDULER': '📅'
+        }
+        
+        # Format and insert logs
+        for idx, log in enumerate(logs):
+            event_type = log['event_type']
+            icon = event_icons.get(event_type, '📋')
+            
+            # Format time (show only time if today, full date otherwise)
+            log_time = datetime.fromtimestamp(log['timestamp'])
+            now = datetime.now()
+            
+            if log_time.date() == now.date():
+                time_str = log_time.strftime("%H:%M:%S")
+            else:
+                time_str = log_time.strftime("%m/%d %H:%M")
+            
+            # Format user
+            user_icon = "👨‍👩‍👧" if log['user'] == 'parent' else "👶" if log['user'] == 'kid' else "🤖"
+            user_display = f"{user_icon} {log['user'].title()}"
+            
+            # Alternate row colors
+            tag = 'evenrow' if idx % 2 == 0 else 'oddrow'
+            
+            # Insert into treeview
+            self.log_tree.insert(
+                '',
+                'end',
+                values=(
+                    time_str,
+                    f"{icon} {event_type}",
+                    log['details'],
+                    user_display
+                ),
+                tags=(tag,)
+            )
+        
+        # Update stats
+        total_count = len(logs)
+        self.log_stats_label.configure(
+            text=f"Showing {total_count} log entries"
+        )
     
     def _clear_logs(self):
         """Clear all activity logs"""

@@ -2658,5 +2658,208 @@
     "event_type": "FILESYSTEM",
     "details": "File created: /kids/drawings/autosave_20260108_184339.json",
     "user": "kid"
+  },
+  {
+    "timestamp": 1767879849.6128457,
+    "datetime": "2026-01-08 18:44:09",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184409.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767879879.6138372,
+    "datetime": "2026-01-08 18:44:39",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184439.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767879909.6150746,
+    "datetime": "2026-01-08 18:45:09",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184509.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767879939.6158214,
+    "datetime": "2026-01-08 18:45:39",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184539.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767879969.6170278,
+    "datetime": "2026-01-08 18:46:09",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184609.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767879999.6184607,
+    "datetime": "2026-01-08 18:46:39",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184639.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880029.6195538,
+    "datetime": "2026-01-08 18:47:09",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184709.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880059.6205895,
+    "datetime": "2026-01-08 18:47:39",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184739.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880089.6242971,
+    "datetime": "2026-01-08 18:48:09",
+    "event_type": "FILESYSTEM",
+    "details": "File created: /kids/drawings/autosave_20260108_184809.json",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880094.6605935,
+    "datetime": "2026-01-08 18:48:14",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880094.6750221,
+    "datetime": "2026-01-08 18:48:14",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767880104.876729,
+    "datetime": "2026-01-08 18:48:24",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880104.8961535,
+    "datetime": "2026-01-08 18:48:24",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767880109.2736614,
+    "datetime": "2026-01-08 18:48:29",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767880109.3093555,
+    "datetime": "2026-01-08 18:48:29",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880109.3191278,
+    "datetime": "2026-01-08 18:48:29",
+    "event_type": "PROCESS",
+    "details": "Process created: Parent Panel (PID=1, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880109.3302171,
+    "datetime": "2026-01-08 18:48:29",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880109.3928719,
+    "datetime": "2026-01-08 18:48:29",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880674.129219,
+    "datetime": "2026-01-08 18:57:54",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880674.1483788,
+    "datetime": "2026-01-08 18:57:54",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767880678.7074547,
+    "datetime": "2026-01-08 18:57:58",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler started",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880678.718877,
+    "datetime": "2026-01-08 18:57:58",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS started",
+    "user": "system"
+  },
+  {
+    "timestamp": 1767880683.7366586,
+    "datetime": "2026-01-08 18:58:03",
+    "event_type": "SECURITY",
+    "details": "Parent mode activated",
+    "user": "parent"
+  },
+  {
+    "timestamp": 1767880683.7712955,
+    "datetime": "2026-01-08 18:58:03",
+    "event_type": "MEMORY",
+    "details": "Allocated 64KB for PID 1 at address 256",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880683.782102,
+    "datetime": "2026-01-08 18:58:03",
+    "event_type": "PROCESS",
+    "details": "Process created: Parent Panel (PID=1, Memory=64KB)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880683.7921925,
+    "datetime": "2026-01-08 18:58:03",
+    "event_type": "SCHEDULER",
+    "details": "Process 1 added to ready queue (priority 5)",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880683.8253825,
+    "datetime": "2026-01-08 18:58:03",
+    "event_type": "PROCESS",
+    "details": "Process 1 state: Ready -> Running",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880740.4156363,
+    "datetime": "2026-01-08 18:59:00",
+    "event_type": "SCHEDULER",
+    "details": "Scheduler stopped",
+    "user": "kid"
+  },
+  {
+    "timestamp": 1767880740.4245968,
+    "datetime": "2026-01-08 18:59:00",
+    "event_type": "SYSTEM",
+    "details": "MiniMind OS shutdown",
+    "user": "system"
   }
 ]
